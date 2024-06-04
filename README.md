@@ -4,13 +4,13 @@ This repository contains a Python script to scrape job listings from Google Jobs
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+- 🚀 [Installation](#installation)
+- 📖 [Usage](#usage)
+- ✨ [Features](#features)
+- 🤝 [Contributing](#contributing)
+- 📜 [License](#license)
 
-## Installation
+## 🚀 Installation
 
 1. **Clone the repository:**
 
@@ -36,7 +36,7 @@ This repository contains a Python script to scrape job listings from Google Jobs
     - Obtain an API key from [SerpAPI](https://serpapi.com/).
     - Save the API key in a file located at `../API keys/serpai.txt`.
 
-## Usage
+## 📖 Usage
 
 1. **Modify the search parameters:**
     - Edit the `search_term`, `search_location`, and `search_radius` variables in the script to suit your needs.
@@ -57,18 +57,18 @@ This repository contains a Python script to scrape job listings from Google Jobs
 3. **View the results:**
     - The results are saved in a CSV file named `DB_data-analyst.csv`.
 
-## Features
+## ✨ Features
 
 - **Pagination:** Fetches multiple pages of results.
 - **Error Handling:** Stops fetching if there are no more results.
 - **Data Normalization:** Normalizes nested JSON data.
 - **Data Persistence:** Saves results to a CSV file, appending new data and removing duplicates.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please create a pull request or open an issue for any improvements or bug fixes.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
