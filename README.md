@@ -49,10 +49,7 @@ This repository contains a Python script to scrape job listings from Google Jobs
         ```
 
 2. **Run the script:**
-
-    ```sh
-    python scrape_jobs.py
-    ```
+    - Run the notebook.
 
 3. **View the results:**
     - The results are saved in a CSV file named `DB_data-analyst.csv`.
