@@ -19,7 +19,7 @@ This repository contains a Python script to scrape job listings from Google Jobs
     cd Job-Seeker
     ```
 
-2. **Create a virtual environment and activate it:**
+2. **Create a virtual environment and activate it - *optionnal* - :**
 
     ```sh
     python -m venv venv
