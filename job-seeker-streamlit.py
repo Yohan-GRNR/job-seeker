@@ -83,10 +83,10 @@ if st.sidebar.button("Let's GO !"):
             "api_key": api_key,
             "device": "desktop",
             "engine": "google_jobs",
-            "google_domain": "google.com",
+            # "google_domain": "google.com",
             "q": search_term,
             # "hl": "en", # Language parameter can return No result
-            "gl": domain_country,  # Domain of country
+            # "gl": domain_country,  # Domain of country
             "lrad": search_radius,
             "location": search_location,
             "chips": agreed,
