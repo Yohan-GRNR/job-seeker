@@ -86,7 +86,7 @@ if st.sidebar.button("Let's GO !"):
             "google_domain": "google.com",
             "q": search_term,
             # "hl": "en", # Language parameter can return No result
-            # "gl": domain_country,  # Domain of country
+            "gl": domain_country,  # Domain of country
             "lrad": search_radius,
             "location": search_location,
             "chips": agreed,
