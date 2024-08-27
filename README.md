@@ -6,7 +6,7 @@ Here’s the translated version for your `README.md` file on GitHub:
 
 ---
 
-**🚀 Exciting News!**
+# 🚀 Exciting News!
 
 Elevate your job search experience with this interactive app! JobJob ! 🎉
 
@@ -15,6 +15,10 @@ Elevate your job search experience with this interactive app! JobJob ! 🎉
 3. **Discover Your Dream Job** using this powerful job board aggregator!
 
 ---
+
+🔽 The following is for developers only 🔽
+
+---  
 
 ## Table of Contents
 
