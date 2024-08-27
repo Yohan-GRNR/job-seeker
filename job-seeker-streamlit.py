@@ -30,6 +30,7 @@ search_term = st.sidebar.text_input("Job you're looking for :", "Data Analyst")
 search_location = st.sidebar.text_input(
     "Location you're looking for :", "Geneva, Switzerland"
 )
+domain_country = st.sidebar.text_input("Country code you're looking for :", "ch")
 search_radius = st.sidebar.slider(
     "Maximum radius in km :", min_value=1, max_value=500, value=20
 )
@@ -85,7 +86,7 @@ if st.sidebar.button("Let's GO !"):
             "google_domain": "google.com",
             "q": search_term,
             # "hl": "en", # Language parameter can return No result
-            "gl": ["ch", "fr"],  # Domain of country
+            "gl": domain_country,  # Domain of country
             "lrad": search_radius,
             "location": search_location,
             "chips": agreed,
