@@ -1,8 +1,6 @@
-# Job Listings Scraper using SerpAPI
+# Job Listings Scraper using SerpAPI - JobJob
 
 This repository contains a Python script to scrape job listings from Google Jobs using the SerpAPI. The script fetches job listings for a specified search term and location, and saves the results in a CSV file.
-
-Here’s the translated version for your `README.md` file on GitHub:
 
 ---
 
