@@ -24,7 +24,6 @@ st.title("🔎 Job Seeker 🚀")
 st.write("### Let's find your dream job ! Exciting, isn't it?")
 
 # Ask about request needed
-words_toban = st.text_input('Techno to ban - split by " , " - :', "C,Go,JavaScript")
 search_term = st.text_input("Job you're looking for :", "Data Analyst")
 search_location = st.text_input("Location you're looking for :", "Geneva, Switzerland")
 search_radius = st.slider(
@@ -33,6 +32,7 @@ search_radius = st.slider(
 results_number = st.number_input(
     "Maximum results wanted :", min_value=1, max_value=500, value=70
 )
+words_toban = st.text_input('Techno to ban - split by " , " - :', "C,Go,JavaScript")
 
 api_key = st.text_input(
     "API key from SerpApi :", "A1bcD23eF4ghij56APIKEYA1bcD23eF4ghij56"
@@ -42,16 +42,14 @@ if api_key == "ImJesus":
 
 # Select only post of the day
 today_post = st.checkbox("Today's posts only")
-if today_post:
-    agreed = "date_posted:today"
-else:
-    agreed = ""
+agreed = "date_posted:today" if today_post else ""
 
 # Select all techno to drop
-if words_toban == "C,Go,JavaScript" or words_toban == "":
-    banned_word = []
-else:
-    banned_word = words_toban.replace(" ", "").split(",")
+banned_word = (
+    []
+    if words_toban in ["C,Go,JavaScript", ""]
+    else words_toban.replace(" ", "").split(",")
+)
 
 
 # Run only if the button is clicked
@@ -66,11 +64,12 @@ if st.button("Let's GO !"):
     # Scraping part
     for num in range(int(results_number / 10)):
 
-        # Check if there is a next page
-        try:
-            next_page_token = results["serpapi_pagination"]["next_page_token"]
-        except KeyError:
+        if num == 0:
             next_page_token = ""
+        else:
+            next_page_token = results.get("serpapi_pagination", {}).get(
+                "next_page_token", ""
+            )
 
         start = num
         params = {
@@ -188,7 +187,7 @@ if st.button("Let's GO !"):
 
         # Notify the rows keeped
         st.write(
-            f"Total row(s) : {jobs_all.shape[0]}. {rows_deleted} row(s) deleted due to banned words selected."
+            f"Total row(s) : {jobs_all.shape[0]}. Deleted row(s) due to banned words selected : {rows_deleted}."
         )
 
         # Show the dataframe
