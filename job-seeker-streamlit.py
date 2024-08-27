@@ -27,8 +27,13 @@ st.write("### Let's find your dream job ! Exciting, isn't it?")
 words_toban = st.text_input('Techno to ban - split by " , " - :', "C,Go,JavaScript")
 search_term = st.text_input("Job you're looking for :", "Data Analyst")
 search_location = st.text_input("Location you're looking for :", "Geneva, Switzerland")
-search_radius = int(st.text_input("Maximum radius in km :", "20"))
-results_number = int(st.text_input("Maximum results wanted :", "120"))
+search_radius = st.slider(
+    "Maximum radius in km :", min_value=1, max_value=500, value=20
+)
+results_number = st.number_input(
+    "Maximum results wanted :", min_value=1, max_value=500, value=70
+)
+
 api_key = st.text_input(
     "API key from SerpApi :", "A1bcD23eF4ghij56APIKEYA1bcD23eF4ghij56"
 )
@@ -48,15 +53,26 @@ if words_toban == "C,Go,JavaScript" or words_toban == "":
 else:
     banned_word = words_toban.replace(" ", "").split(",")
 
+
 # Run only if the button is clicked
 if st.button("Let's GO !"):
+
+    # ---------------------------------------------
+    # START SCRAPING PART
+
     # Create a text element and let the reader know the data is loading.
     data_load_state = st.text("Loading data...")
 
     # Scraping part
     for num in range(int(results_number / 10)):
 
-        start = num * 10
+        # Check if there is a next page
+        try:
+            next_page_token = results["serpapi_pagination"]["next_page_token"]
+        except KeyError:
+            next_page_token = ""
+
+        start = num
         params = {
             "api_key": api_key,
             "device": "desktop",
@@ -68,7 +84,7 @@ if st.button("Let's GO !"):
             "lrad": search_radius,
             "location": search_location,
             "chips": agreed,
-            # "next_page_token": start
+            "next_page_token": next_page_token,
         }
 
         search = GoogleSearch(params)
@@ -104,14 +120,21 @@ if st.button("Let's GO !"):
         else:
             continue
 
+    # END SCRAPING PART
+    # ---------------------------------------------
+
+    # If no results found, inform the reader
     try:
         if results["error"] == "Google hasn't returned any results for this query.":
             st.write("Change parameters.")
 
+    # Elif there are some results, cleaning
     except KeyError:
-        data_load_state.text(
-            "Success: Data Loaded!"
-        )  # Notify the reader that the data was successfully loaded
+        # Notify the reader that the data was successfully loaded
+        data_load_state.text("Success: Data Loaded!")
+
+        # ---------------------------------------------
+        # START of CLEANING PART
 
         # Drop the useless columns
         to_drop = [
@@ -142,7 +165,6 @@ if st.button("Let's GO !"):
             for word in words:
                 if word.lower() in sentence.lower():
                     return False
-                    break
                 else:
                     return True
 
@@ -157,6 +179,9 @@ if st.button("Let's GO !"):
 
         # Count of filtred rows (without banned_words)
         rows_deleted = total_rows - jobs_all.shape[0]
+
+        # END of CLEANING PART
+        # ---------------------------------------------
 
         # Notify the data was successfully loaded
         data_load_state.text("Success: Data Loaded!")
