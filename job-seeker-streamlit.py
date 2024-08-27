@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # Set app abouts
 st.set_page_config(
-    page_title="🔎 Job Seeker 🚀",
+    page_title="🔎 JobJob 🚀",
     page_icon="🔎",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -20,28 +20,34 @@ st.set_page_config(
 )
 
 # Set title
-st.title("🔎 Job Seeker 🚀")
+st.title("🔎 JobJob 🚀")
 st.write("### Let's find your dream job ! Exciting, isn't it?")
 
+st.sidebar.write("Enter your filters")
+
 # Ask about request needed
-search_term = st.text_input("Job you're looking for :", "Data Analyst")
-search_location = st.text_input("Location you're looking for :", "Geneva, Switzerland")
-search_radius = st.slider(
+search_term = st.sidebar.text_input("Job you're looking for :", "Data Analyst")
+search_location = st.sidebar.text_input(
+    "Location you're looking for :", "Geneva, Switzerland"
+)
+search_radius = st.sidebar.slider(
     "Maximum radius in km :", min_value=1, max_value=500, value=20
 )
-results_number = st.number_input(
+results_number = st.sidebar.number_input(
     "Maximum results wanted :", min_value=1, max_value=500, value=70
 )
-words_toban = st.text_input('Techno to ban - split by " , " - :', "C,Go,JavaScript")
+words_toban = st.sidebar.text_input(
+    'Techno to ban - split by " , " - :', "C,Go,JavaScript"
+)
 
-api_key = st.text_input(
+api_key = st.sidebar.text_input(
     "API key from SerpApi :", "A1bcD23eF4ghij56APIKEYA1bcD23eF4ghij56"
 )
 if api_key == "ImJesus":
     api_key = open("../API keys/serpapi.txt", "r").read()
 
 # Select only post of the day
-today_post = st.checkbox("Today's posts only")
+today_post = st.sidebar.checkbox("Today's posts only")
 agreed = "date_posted:today" if today_post else ""
 
 # Select all techno to drop
@@ -53,7 +59,7 @@ banned_word = (
 
 
 # Run only if the button is clicked
-if st.button("Let's GO !"):
+if st.sidebar.button("Let's GO !"):
 
     # ---------------------------------------------
     # START SCRAPING PART
