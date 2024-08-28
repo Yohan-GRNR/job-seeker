@@ -209,5 +209,7 @@ if st.sidebar.button("Let's GO !"):
         fig = px.histogram(jobs_all, x="location", color="via")
         st.plotly_chart(fig)
 
-    else:
+    try:
+        st.dataframe(jobs_all)
+    except:
         data_load_state.text("Can't run : Check your API key 🔑")
