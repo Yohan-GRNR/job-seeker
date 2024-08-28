@@ -105,6 +105,13 @@ if st.sidebar.button("Let's GO !"):
         try:
             if results["error"] == "Google hasn't returned any results for this query.":
                 st.write(f"{results["error"]}")
+
+            elif (
+                results["error"]
+                == "Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
+            ):
+                data_load_state.text("Can't run : Check your API key 🔑")
+
                 break
 
         except KeyError:
@@ -208,8 +215,3 @@ if st.sidebar.button("Let's GO !"):
         # Show stats from graph
         fig = px.histogram(jobs_all, x="location", color="via")
         st.plotly_chart(fig)
-
-    try:
-        st.dataframe(jobs_all)
-    except:
-        data_load_state.text("Can't run : Check your API key 🔑")
