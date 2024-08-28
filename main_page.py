@@ -5,6 +5,7 @@ import datetime
 import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
+import unidecode
 
 
 # Set title
@@ -14,15 +15,21 @@ st.write("### Let's find your dream job ! Exciting, isn't it?")
 st.sidebar.write("Enter your filters")
 
 # Ask about request needed
-search_term = st.sidebar.text_input("Job you're looking for :", "Data Analyst")
-search_location = st.sidebar.text_input(
-    "Location you're looking for :", "Geneva, Switzerland"
+search_term = unidecode.unidecode(
+    st.sidebar.text_input("Job you're looking for :", "Data Analyst").lower()
+)
+search_location = unidecode.unidecode(
+    st.sidebar.text_input(
+        "Location you're looking for :", "Geneva, Switzerland"
+    ).lower()
 )
 # Add 2 cols
 left_col, right_col = st.sidebar.columns(2)
 
 # Left side
-domain_country = left_col.text_input("Country code :", "ch")
+domain_country = unidecode.unidecode(
+    left_col.text_input("Country code :", "ch").lower()
+)
 
 # Right side
 results_number = right_col.number_input(
