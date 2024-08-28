@@ -18,8 +18,6 @@ st.write("### Let's find your dream job ! Exciting, isn't it?")
 
 st.sidebar.write("Enter your filters")
 
-st.sidebar.divider()
-
 # Ask about request needed
 search_term = unidecode.unidecode(
     st.sidebar.text_input("Job you're looking for :", "Data Analyst").lower()
