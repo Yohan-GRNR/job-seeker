@@ -1,8 +1,14 @@
 import streamlit as st
 
-st.title("JobJob ! 🎉")
+st.image("https://ygdata.ch/portfolio-details-pages/media/JobJob.png", width = 100)
+st.title("JobJob !")
+
+st.divider()
 
 st.markdown("#### Elevate your job search experience with this interactive app !")
+
+st.divider()
+
 st.markdown("### Get your API key 🔑 :  [SerpApi.com](https://serpapi.com/)")
 
 row1_left, row1_right = st.columns(2)

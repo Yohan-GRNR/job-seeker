@@ -9,10 +9,16 @@ import unidecode
 
 
 # Set title
-st.title("🔎 JobJob 🚀")
+st.image("https://ygdata.ch/portfolio-details-pages/media/JobJob.png", width=100)
+st.title("JobJob !")
+
+st.divider()
+
 st.write("### Let's find your dream job ! Exciting, isn't it?")
 
 st.sidebar.write("Enter your filters")
+
+st.sidebar.divider()
 
 # Ask about request needed
 search_term = unidecode.unidecode(

@@ -9,7 +9,7 @@ about_page = st.Page("about.py", title="About the app 📚", icon=":material/loo
 pg = st.navigation([tuto_api_page, app_page, about_page])
 st.set_page_config(
     page_title="🔎 JobJob 🚀",
-    page_icon="🔎",
+    page_icon="https://ygdata.ch/portfolio-details-pages/media/JobJob.png",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
