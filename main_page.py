@@ -105,13 +105,13 @@ if st.sidebar.button("Let's GO !"):
         try:
             if results["error"] == "Google hasn't returned any results for this query.":
                 st.write(f"{results["error"]}")
+                break
 
             elif (
                 results["error"]
                 == "Invalid API key. Your API key should be here: https://serpapi.com/manage-api-key"
             ):
                 data_load_state.text("Can't run : Check your API key 🔑")
-
                 break
 
         except KeyError:
