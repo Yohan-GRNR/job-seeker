@@ -4,7 +4,7 @@ tuto_api_page = st.Page(
     "tuto_api.py", title="Get your API key 🔑", icon=":material/looks_one:"
 )
 app_page = st.Page("main_page.py", title="Get your job 🚀", icon=":material/looks_two:")
-about_page = st.Page("about.py", title="About the app 📚", icon=":material/looks_3:")
+about_page = st.Page("about.py", title="About app 📚", icon=":material/looks_3:")
 
 pg = st.navigation([tuto_api_page, app_page, about_page])
 st.set_page_config(
