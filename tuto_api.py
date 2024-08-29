@@ -1,12 +1,16 @@
 import streamlit as st
 
-st.image("https://ygdata.ch/portfolio-details-pages/media/JobJob.png", width = 100)
+st.image("https://ygdata.ch/portfolio-details-pages/media/JobJob.png", width=100)
 st.title("JobJob !")
 
 st.divider()
 
 st.markdown("#### Elevate your job search experience with this interactive app !")
 
+st.markdown(
+    """An API key is like a password that lets your app access specific services.  
+            On this app, it helps connect to job search tool. It's safe to use, there's nothing stored. **Everything stays private and secure**."""
+)
 st.divider()
 
 st.markdown("### Get your API key 🔑 :  [SerpApi.com](https://serpapi.com/)")
@@ -26,7 +30,7 @@ row3_left.container(height=200).markdown("3. Copy to the clipboard")
 row3_right.container(height=200).image("media/API_step_3.jpg")
 
 row4_left.container(height=200).markdown(
-    """4. Go to **Get your job 🚀** and past
+    """4. Go to **Get your job 🚀** and paste your key !
     
     **Enjoy 100 free requests !**"""
 )
