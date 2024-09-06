@@ -93,9 +93,9 @@ if st.sidebar.button("Let's GO !"):
             "device": "desktop",
             "engine": "google_jobs",
             # "google_domain": "google.com",
-            "q": search_term.lower(),  # Lowercase forced
+            "q": search_term,  # Lowercase forced
             # "hl": "en", # Language parameter can return No result
-            "gl": domain_country.lower(),  # Domain of country, Lowercase forced
+            "gl": domain_country,  # Domain of country, Lowercase forced
             "lrad": search_radius,
             "location": search_location,
             "chips": agreed,

@@ -26,7 +26,7 @@ row1_right.container(height=200).image("media/API_step_1.jpg")
 row2_left.container(height=200).markdown("2. Select **Api Key** on left tab")
 row2_right.container(height=200).image("media/API_step_2.jpg")
 
-row3_left.container(height=200).markdown("3. Copy to the clipboard")
+row3_left.container(height=200).markdown("3. Copy to clipboard")
 row3_right.container(height=200).image("media/API_step_3.jpg")
 
 row4_left.container(height=200).markdown(
